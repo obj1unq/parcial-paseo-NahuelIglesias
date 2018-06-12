@@ -19,13 +19,13 @@ describe "test de una familia que NO pasea" {
 	var zapatillasZoe = new PrendaPares(talle=s, prendaDerecha=zapaDerecha, prendaIzquierda=zapaIzquierda) 
 	
 	//prenda pesada con 5 de abrigo
-	var jeanZoe = new PrendaPesada(talle=s/*, abrigo=5*/) 
+	var jeanZoe = new PrendaPesada(talle=s, abrigo=5) 
 	
 	//prenda liviana con desgaste default: 0
 	var remeraZoe = new PrendaLiviana(talle=s)
 	
 	// prenda pesada con desgaste default: 0
-	var camperaZoe = new PrendaPesada(talle=s) 
+	var camperaZoe = new PrendaPesada(talle=s, abrigo=3) 
 
 	//un juguete para niños de 5 a 100 anios
 	var ukelele = new XXX(min=5, max=100)
@@ -37,8 +37,8 @@ describe "test de una familia que NO pasea" {
 	var calzaMilena = new PrendaLiviana(talle=xs) //prenda liviana
 
 	//prenda par, la ojota izquierda tiene que tener 1 de desgaste y 2 de abrigo, la ojota derecha tiene 3 de desgaste y 3 de abrigo
-	var ojotaIzquierda = new Prenda(desgaste=1, talle=l)
-	var ojotaDerecha = new Prenda(desgaste=3, talle=l)
+	var ojotaIzquierda = new Prenda(desgaste=1, talle=l, abrigo=2)
+	var ojotaDerecha = new Prenda(desgaste=3, talle=l, abrigo=3)
 	
 	var ojotasMilena = new PrendaPares(talle=l, prendaDerecha=ojotaDerecha, prendaIzquierda=ojotaIzquierda) 
 	
@@ -95,16 +95,16 @@ describe "test de una familia que NO pasea" {
 
 
 //PUNTO 3	
-//	test "nivel de abrigo" {
-//		assert.equals(2 , /* abrigo de mediasZoe*/)
-//		assert.equals(2 , /* abrigo de zapatillasZoe*/)
-//		assert.equals(5 , /* abrigo de jeanZoe */)
-//		assert.equals(1 , /* abrigo de remeraZoe*/)
-//		assert.equals(3 , /* abrigo de camperaZoe*/)
-//		assert.equals(1 , /* abrigo de remeraMilena*/)		
-//		assert.equals(1 , /* abrigo de calzaMilena*/)
-//		assert.equals(5 , /* abrigo de ojotasMilena*/)
-//	}
+	test "nivel de abrigo" {
+		assert.equals(2 , mediasZoe.nivelAbrigo())
+		assert.equals(2 , zapatillasZoe.nivelAbrigo())
+		assert.equals(5 , jeanZoe.nivelAbrigo())
+		assert.equals(1 , remeraZoe.nivelAbrigo())
+		assert.equals(3 , camperaZoe.nivelAbrigo())
+		assert.equals(1 , remeraMilena.nivelAbrigo())		
+		assert.equals(1 , calzaMilena.nivelAbrigo())
+		assert.equals(5 , ojotasMilena.nivelAbrigo())
+	}
 
 //PUNTO 4		
 //	test "puede salir de paseo" {

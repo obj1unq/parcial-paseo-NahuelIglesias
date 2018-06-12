@@ -34,6 +34,7 @@ class Ninio {
 class Prenda {
 	var talle
 	var desgaste = 0 //el desgaste no puede ser un numero negativo
+	var abrigo = 1
 	
 	method desgaste() = desgaste
 	method talle() = talle
@@ -55,7 +56,11 @@ class Prenda {
 			3
 		}
 	}
+	
+	method nivelAbrigo() = abrigo
 }
+
+
 
 class PrendaPares inherits Prenda {
 	var prendaDerecha //intancia class Prenda
@@ -92,15 +97,36 @@ class PrendaPares inherits Prenda {
 	method cambiarDerecho(prendaX) {
 		prendaDerecha = prendaX
 	}
+	
+	override method nivelAbrigo() {
+		return prendaDerecha.nivelAbrigo() + prendaIzquierda.nivelAbrigo()
+	}
 }
+
+
 
 class PrendaLiviana inherits Prenda {
 	override method nivelDeComodidad(ninioX) {
 		return super(ninioX) + 2
 	}
+	
+	override method nivelAbrigo() {
+		return abrigoPromedio.prendasLivianas()
+	}
 }
-class PrendaPesada inherits Prenda {
 
+object abrigoPromedio {
+	var prendasLivianas = 1
+	
+	method prendasLivianas() = prendasLivianas
+	method cambiarValorPrendasLivianas(nuevoValor) {
+		prendasLivianas = nuevoValor
+	}
+}
+
+
+class PrendaPesada inherits Prenda {
+	//var abrigo = 3 //no supe modificar el default para las pesadas, hay que hacerlo aclarar el abrigo manualmente
 }
 
 //Objetos usados para los talles
