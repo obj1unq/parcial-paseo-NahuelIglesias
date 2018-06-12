@@ -28,7 +28,7 @@ describe "test de una familia que NO pasea" {
 	var camperaZoe = new PrendaPesada(talle=s, abrigo=3) 
 
 	//un juguete para niños de 5 a 100 anios
-	var ukelele = new XXX(min=5, max=100)
+	var ukelele = new Juguete(edadMin=5, edadMax=100)
 	
 	//prenda liviana con un desgaste de 5
 	var remeraMilena = new PrendaLiviana(talle=xs, desgaste=5)
@@ -46,7 +46,7 @@ describe "test de una familia que NO pasea" {
 	var zoe = new Ninio(talle=s, edad=11, prendas=#{mediasZoe, zapatillasZoe, jeanZoe, remeraZoe, camperaZoe}) 
 
 	//ninio problematico
-	var milena = new Ninio(talle=xs, edad=2, prendas = #{remeraMilena, calzaMilena, ojotasMilena}/*, juguete=ukelele*/)
+	var milena = new Problematico(talle=xs, edad=2, prendas = #{remeraMilena, calzaMilena, ojotasMilena}, juguete=ukelele)
 	
 	//familia	
 	var familiaAptaSalir = new Familia(ninios = #{ zoe})
@@ -106,13 +106,13 @@ describe "test de una familia que NO pasea" {
 		assert.equals(5 , ojotasMilena.nivelAbrigo())
 	}
 
-//PUNTO 4		
+//PUNTO 4 Y 5
 	test "puede salir de paseo" {
 		assert.that(familiaAptaSalir.puedePasear())
 		assert.notThat(familiaNoAptaParaSalir.puedePasear())
 	}
-//PUNTO 5
 	
+//PUNTO 6
 //	test "infaltables" {
 //		assert.equals(#{jeanZoe,calzaMilena}, familiaNoAptaParaSalir.infaltables())		
 //	}
@@ -121,7 +121,7 @@ describe "test de una familia que NO pasea" {
 //		)		
 //	}
 	
-//PUNTO 6	
+//PUNTO 7	
 //	test "salir de paseo ok" {
 //		familiaAptaSalir.pasear()
 //		assert.equals(1.8 , mediaIzquierda.desgaste())
@@ -133,7 +133,7 @@ describe "test de una familia que NO pasea" {
 //		assert.equals(1 , camperaZoe.desgaste())
 		
 //	}
-//PUNTO 7	
+//PUNTO 8	
 //	test "salir de paseo no ok" {
 //		//Que sucede si le pido pasear a una familia que no está lista?
 		//El test está incompleto!

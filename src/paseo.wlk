@@ -46,6 +46,30 @@ class Ninio {
 	}
 }
 
+class Problematico inherits Ninio {
+	var juguete //instancia de la clase Juguete
+	
+	override method tieneSuficientesPrendas() {
+		return prendas.size() >= 4
+	}
+	
+	override method listoParaSalir() {
+		return super() and self.tieneEdadParaJuguete()
+	}
+	method tieneEdadParaJuguete() {
+		return edad.between(juguete.edadMin(), juguete.edadMax())
+	}
+}
+
+
+class Juguete {
+	var edadMin
+	var edadMax
+	
+	method edadMin() = edadMin
+	method edadMax() = edadMax
+}
+
 
 //------Prendas------
 
@@ -68,7 +92,7 @@ class Prenda {
 	
 	method incomodidadPorDesgaste() {
 		return 
-		if (0 <= self.desgaste() and self.desgaste() <= 3) {
+		if (self.desgaste().between(0, 3)) {
 			self.desgaste()
 		} else {
 			3
