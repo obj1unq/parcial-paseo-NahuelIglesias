@@ -118,29 +118,27 @@ describe "test de una familia que NO pasea" {
 	}
 
 //PUNTO 7
-//	test "chiquitos" {
-//		assert.equals(#{milena}, familiaNoAptaParaSalir.chiquitos())
-//		)		
-//	}
+	test "chiquitos" {
+		assert.equals(#{milena}, familiaNoAptaParaSalir.chiquitos())	
+	}
 	
 //PUNTO 8	
-//	test "salir de paseo ok" {
-//		familiaAptaSalir.pasear()
-//		assert.equals(1.8 , mediaIzquierda.desgaste())
-//		assert.equals(4.2 , mediaDerecha.desgaste())
-//		assert.equals(3 , mediasZoe.desgaste())
-//		assert.equals(1 , zapatillasZoe.desgaste())
-//		assert.equals(1 , jeanZoe.desgaste())
-//		assert.equals(1 , remeraZoe.desgaste())
-//		assert.equals(1 , camperaZoe.desgaste())
-		
-//	}
+	test "salir de paseo ok" {
+		familiaAptaSalir.pasear()
+		assert.equals(1.8 , mediaIzquierda.desgaste())
+		assert.equals(4.2 , mediaDerecha.desgaste())
+		assert.equals(3 , mediasZoe.desgaste())
+		assert.equals(1 , zapatillasZoe.desgaste())
+		assert.equals(1 , jeanZoe.desgaste())
+		assert.equals(1 , remeraZoe.desgaste())
+		assert.equals(1 , camperaZoe.desgaste())
+	}
 	
-//	test "salir de paseo no ok" {
-//		//Que sucede si le pido pasear a una familia que no está lista?
+	test "salir de paseo no ok" {
+		//Que sucede si le pido pasear a una familia que no está lista?
 		//El test está incompleto!
-//		familiaNoAptaParaSalir.pasear()
-//	}
+		assert.throwsException({familiaNoAptaParaSalir.pasear()})
+	}
 	
 	
 }

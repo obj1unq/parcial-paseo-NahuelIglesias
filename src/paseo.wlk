@@ -25,6 +25,18 @@ class Familia {
 	method infaltables() {
 		return ninios.map({ninio => ninio.prendaInfaltable()}).asSet()
 	}
+	
+	method chiquitos() {
+		return ninios.filter({ninio => ninio.esChiquito()})
+	}
+	
+	method pasear() {
+		if (self.puedePasear()) {
+			ninios.forEach({ninio => ninio.saleAPasear()})
+		} else {
+			self.error("Esta familia no cumple con las condiciones para dar un paseo")
+		}
+	}
 }
 
 class Ninio {
@@ -51,6 +63,14 @@ class Ninio {
 	
 	method prendaInfaltable() {
 		return prendas.max({prenda => prenda.nivelCalidad(self)})
+	}
+	
+	method esChiquito() {
+		return edad < 4
+	}
+	
+	method saleAPasear() {
+		prendas.forEach({prenda => prenda.esUtilizada()})
 	}
 }
 
@@ -109,6 +129,16 @@ class Prenda {
 	
 	method nivelAbrigo() = abrigo
 	method nivelCalidad(ninioX) = abrigo + self.nivelDeComodidad(ninioX)
+	
+	method esUtilizada() {
+		desgaste += 1
+	}
+	method seUtilizaIzquierda() {
+		desgaste += 0.8
+	}
+	method seUtilizaDerecha() {
+		desgaste += 1.2
+	}
 }
 
 
@@ -125,7 +155,7 @@ class PrendaPares inherits Prenda {
 	}
 	method leCaeMalAChiquitos(ninioX) {
 		return
-		if (ninioX.edad() < 4) {
+		if (ninioX.esChiquito()) {
 			1
 		} else {
 			0
@@ -151,6 +181,11 @@ class PrendaPares inherits Prenda {
 	
 	override method nivelAbrigo() {
 		return prendaDerecha.nivelAbrigo() + prendaIzquierda.nivelAbrigo()
+	}
+	
+	override method esUtilizada() {
+		prendaDerecha.seUtilizaDerecha()
+		prendaIzquierda.seUtilizaIzquierda()
 	}
 }
 
