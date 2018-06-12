@@ -1,12 +1,7 @@
 import paseo.*
 describe "test de una familia que NO pasea" {
-
-//NOTA: Este fixture está incompleto y sirve para comenzar a testear el examen.
-//Es a modo de ayuda, pero no es obligatorio respetar este escenario. 
-// Puede modificarse tanto como sea necesario.
-
 	
-	//prenda par, la media izquierda tiene que tener 1 de desgaste, la derecha 3, el abrigo es default 0
+	//prenda par, la media izquierda tiene que tener 1 de desgaste, la derecha 3, el abrigo es default 1
 	var mediaIzquierda = new Prenda(desgaste = 1, talle=s) //elemento de par
 	var mediaDerecha = new Prenda(desgaste = 3, talle=s)
 	
@@ -86,10 +81,6 @@ describe "test de una familia que NO pasea" {
 	}
 	
 	test "intercambiar pares no ok" {
-		//Que sucede si intercambio un par de talles distinto?
-		//probar el cambio entre las ojotas de milena y las medias de zoe
-		//El test está incompleto!
-		
 		assert.throwsException({ojotasMilena.intercambiarPares(mediasZoe)})
 	}
 
@@ -135,8 +126,6 @@ describe "test de una familia que NO pasea" {
 	}
 	
 	test "salir de paseo no ok" {
-		//Que sucede si le pido pasear a una familia que no está lista?
-		//El test está incompleto!
 		assert.throwsException({familiaNoAptaParaSalir.pasear()})
 	}
 	

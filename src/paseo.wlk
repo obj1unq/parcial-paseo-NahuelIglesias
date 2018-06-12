@@ -1,20 +1,3 @@
-
-
-//Esta clase no debe existir, 
-//está para que el test compile al inicio del examen
-//al finalizar el examen hay que borrar esta clase
-class XXX {
-	var talle= null
-	var desgaste= null
-	var min= null
-	var max= null
-	var prendas= null
-	var ninios= null
-	var edad= null
-	var juguete = null
-	var abrigo = null
-}
-
 class Familia {
 	var ninios //CONJUNTO de instancias de clase Ninio o subclases
 	
@@ -141,7 +124,7 @@ class Prenda {
 	}
 }
 
-
+//------
 
 class PrendaPares inherits Prenda {
 	var prendaDerecha //intancia class Prenda
@@ -200,7 +183,6 @@ class PrendaLiviana inherits Prenda {
 		return abrigoPromedio.prendasLivianas()
 	}
 }
-
 object abrigoPromedio {
 	var prendasLivianas = 1
 	
@@ -211,13 +193,14 @@ object abrigoPromedio {
 }
 
 
+
 class PrendaPesada inherits Prenda {
 	//var abrigo = 3 //no supe modificar el default para las pesadas, hay que hacerlo aclarar el abrigo manualmente
 }
 
-//Objetos usados para los talles
+//------Talles------
 object xs {}
 object s {}
 object m {}
 object l {}
-object xl{}
+object xl {}
