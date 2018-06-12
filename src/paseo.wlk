@@ -16,16 +16,34 @@ class XXX {
 }
 
 class Familia {
+	var ninios //CONJUNTO de instancias de clase Ninio o subclases
 	
+	method puedePasear() {
+		return ninios.all({ninio => ninio.listoParaSalir()})
+	}
 }
 
 class Ninio {
 	var talle //objeto talle
 	var edad //numero
-	var prendas
+	var prendas //CONJUNTO de intancias de subclases de clase Prenda
 	
 	method talle() = talle
 	method edad() = edad
+	
+	method listoParaSalir() {
+		return self.tieneSuficientesPrendas() and self.estaAbrigado() and (self.promedioCalidad() > 8)
+	}
+	
+	method tieneSuficientesPrendas() {
+		return prendas.size() >= 5
+	}
+	method estaAbrigado() {
+		return prendas.any({prenda => prenda.nivelAbrigo() >= 3})
+	}
+	method promedioCalidad() {
+		return (prendas.sum({prenda => prenda.nivelCalidad(self)})) / prendas.size()
+	}
 }
 
 
@@ -58,6 +76,7 @@ class Prenda {
 	}
 	
 	method nivelAbrigo() = abrigo
+	method nivelCalidad(ninioX) = abrigo + self.nivelDeComodidad(ninioX)
 }
 
 

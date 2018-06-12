@@ -49,10 +49,10 @@ describe "test de una familia que NO pasea" {
 	var milena = new Ninio(talle=xs, edad=2, prendas = #{remeraMilena, calzaMilena, ojotasMilena}/*, juguete=ukelele*/)
 	
 	//familia	
-	var familiaAptaSalir = new XXX(ninios = #{ zoe})
+	var familiaAptaSalir = new Familia(ninios = #{ zoe})
 
 	//familia	
-	var familiaNoAptaParaSalir= new XXX(ninios = #{milena, zoe})
+	var familiaNoAptaParaSalir= new Familia(ninios = #{milena, zoe})
 	
 	
 //PUNTO 1	
@@ -107,10 +107,10 @@ describe "test de una familia que NO pasea" {
 	}
 
 //PUNTO 4		
-//	test "puede salir de paseo" {
-//		assert.that(familiaAptaSalir.puedePasear())
-//		assert.notThat(familiaNoAptaParaSalir.puedePasear())
-//	}
+	test "puede salir de paseo" {
+		assert.that(familiaAptaSalir.puedePasear())
+		assert.notThat(familiaNoAptaParaSalir.puedePasear())
+	}
 //PUNTO 5
 	
 //	test "infaltables" {
