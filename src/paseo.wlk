@@ -21,6 +21,10 @@ class Familia {
 	method puedePasear() {
 		return ninios.all({ninio => ninio.listoParaSalir()})
 	}
+	
+	method infaltables() {
+		return ninios.map({ninio => ninio.prendaInfaltable()}).asSet()
+	}
 }
 
 class Ninio {
@@ -43,6 +47,10 @@ class Ninio {
 	}
 	method promedioCalidad() {
 		return (prendas.sum({prenda => prenda.nivelCalidad(self)})) / prendas.size()
+	}
+	
+	method prendaInfaltable() {
+		return prendas.max({prenda => prenda.nivelCalidad(self)})
 	}
 }
 
