@@ -70,27 +70,28 @@ describe "test de una familia que NO pasea" {
 
 
 //PUNTO 2		
-//	test "intercambiar pares ok" {
-//		var mediaIzq = mediasZoe.izquierdo()
-//		var mediaDer = mediasZoe.derecho()
-//		var zapaIzq = zapatillasZoe.izquierdo()
-//		var zapaDer = zapatillasZoe.derecho()
+	test "intercambiar pares ok" {
+		var mediaIzq = mediasZoe.izquierdo()
+		var mediaDer = mediasZoe.derecho()
+		var zapaIzq = zapatillasZoe.izquierdo()
+		var zapaDer = zapatillasZoe.derecho()
 		
-//		mediasZoe.intercambiar(zapatillasZoe)
+		mediasZoe.intercambiarPares(zapatillasZoe)
 
-//		assert.equals(mediaIzq, mediasZoe.izquierdo())
-//		assert.equals(mediaDer, zapatillasZoe.derecho())
-//		assert.equals(zapaIzq, zapatillasZoe.izquierdo())
-//		assert.equals(zapaDer, mediasZoe.derecho())
+		assert.equals(mediaIzq, mediasZoe.izquierdo())
+		assert.equals(mediaDer, zapatillasZoe.derecho())
+		assert.equals(zapaIzq, zapatillasZoe.izquierdo())
+		assert.equals(zapaDer, mediasZoe.derecho())
 				
-//	}
+	}
 	
-//	test "intercambiar pares no ok" {
+	test "intercambiar pares no ok" {
 		//Que sucede si intercambio un par de talles distinto?
 		//probar el cambio entre las ojotas de milena y las medias de zoe
 		//El test está incompleto!
-//		ojotasMilena.intercambiar(mediasZoe)
-//	}
+		
+		assert.throwsException({ojotasMilena.intercambiarPares(mediasZoe)})
+	}
 
 
 //PUNTO 3	

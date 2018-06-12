@@ -36,7 +36,8 @@ class Prenda {
 	var desgaste = 0 //el desgaste no puede ser un numero negativo
 	
 	method desgaste() = desgaste
-	
+	method talle() = talle
+		
 	method nivelDeComodidad(ninioX) {
 		return
 		if (talle == ninioX.talle()) {
@@ -60,6 +61,9 @@ class PrendaPares inherits Prenda {
 	var prendaDerecha //intancia class Prenda
 	var prendaIzquierda //instancia class Prenda
 	
+	method izquierdo() = prendaIzquierda
+	method derecho() = prendaDerecha
+	
 	override method nivelDeComodidad(ninioX) {
 		return super(ninioX) - self.leCaeMalAChiquitos(ninioX)
 	}
@@ -74,6 +78,19 @@ class PrendaPares inherits Prenda {
 	
 	override method desgaste() {
 		return (prendaDerecha.desgaste() + prendaIzquierda.desgaste())/2
+	}
+	
+	method intercambiarPares(prendaParX) {
+		if (talle == prendaParX.talle()) {
+			var derechoParX = prendaParX.derecho()
+			prendaParX.cambiarDerecho(self.derecho())
+			self.cambiarDerecho(derechoParX)
+		} else {
+			self.error("El cambio no es posible porque las prendas son de talles distintos")
+		}
+	}
+	method cambiarDerecho(prendaX) {
+		prendaDerecha = prendaX
 	}
 }
 
