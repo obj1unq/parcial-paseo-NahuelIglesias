@@ -1,3 +1,14 @@
+// Nota 10 (diez): Excelente parcia.
+
+// 1) MB.
+// 2) MB. 
+// 3) MB-.
+// 4) MB
+// 5) MB.
+// 6) MB.
+// 7) MB.
+// 8) MB.
+
 class Familia {
 	var ninios //CONJUNTO de instancias de clase Ninio o subclases
 	
@@ -94,6 +105,7 @@ class Prenda {
 		
 	method nivelDeComodidad(ninioX) {
 		return
+		// Podría separarse en otra subtarea la comodidad por talle.
 		if (talle == ninioX.talle()) {
 			8
 		} else {
@@ -103,6 +115,7 @@ class Prenda {
 	
 	method incomodidadPorDesgaste() {
 		return 
+		// Más fácil self.desgaste().min(3)
 		if (self.desgaste().between(0, 3)) {
 			self.desgaste()
 		} else {
@@ -136,7 +149,7 @@ class PrendaPares inherits Prenda {
 	override method nivelDeComodidad(ninioX) {
 		return super(ninioX) - self.leCaeMalAChiquitos(ninioX)
 	}
-	method leCaeMalAChiquitos(ninioX) {
+	method leCaeMalAChiquitos(ninioX) { // Este nombre no es del todo descriptivo
 		return
 		if (ninioX.esChiquito()) {
 			1
